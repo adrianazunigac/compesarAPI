@@ -20,6 +20,7 @@ class UserSeeder extends Seeder
             'dni' => '123456',
             'name' => 'administrador',
             'email' => 'amendozaaguiar@outlook.com',
+            'picture_profile' => '',
             'password' => bcrypt('123456')
         ]);
     }

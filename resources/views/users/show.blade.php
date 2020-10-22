@@ -11,6 +11,13 @@
                 </div>
 
                 <div class="card-body">
+                    @if(!empty($user->picture_profile))
+                        <div class="text-center">
+                          <img src="{{ asset( $user->picture_profile ) }}" class="rounded-circle" width="250px" height="250px" />
+                        </div>
+                        @else
+                        <p><i>Sin foto de perfil :(</i></p>
+                    @endif
                 	<p><strong>{{ __('Id') }}:</strong>   {{ $user->id }}</p>
                     <p><strong>{{ __('DNI') }}:</strong>   {{ $user->dni }}</p>
                     <p><strong>{{ __('Name') }}:</strong>   {{ $user->name }}</p>

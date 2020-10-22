@@ -10,6 +10,9 @@ Use App\Models\User;
 //Encriptado de contraseñas
 use Illuminate\Support\Facades\Hash;
 
+//storage
+use Illuminate\Support\Facades\Storage;
+
 class UserController extends Controller
 {
     /**
@@ -44,16 +47,32 @@ class UserController extends Controller
         $request->validate([
             'dni'               => 'required|unique:users|string|max:100',
             'email'             => 'required|unique:users|email|max:255',
-            'password'          => 'required|string|min:8|confirmed',
+            'password'          => 'required|string|min:8|confirmed'
         ]);
 
+         
+        //Guardo la Hoja de vida y ela URL en la variable $path
+        if($request->file())
+        {
+            $request->validate([
+                'picture_profile'   => 'sometimes|image|mimes:jpeg,jpg,png|max:3000'
+            ]);
+            $path_picture = Storage::disk('public')->put('picture_profile', $request->file('picture_profile'));
+        }
+        else
+        {
+            $path_picture ='';
+        }
         $user = User::create([
-            'dni' => $request->name,
+            'dni' => $request->dni,
             'name' => $request->name,
             'email' => $request->email,
+            'picture_profile' => $path_picture,
             'password' => Hash::make($request->password),
         ]);
 
+       
+        
         return redirect()->route('users.index', $user->id)
             ->with('info', 'Usuario registrado con éxito');
     }
@@ -92,15 +111,32 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'dni'               => 'required|string|max:100',
             'email'             => 'required|email|max:255',
-            'password'          => 'required|string|min:8|confirmed',          
+            'password'          => 'required|string|min:8|confirmed'
         ]);
+
+        //Guardo la Hoja de vida y ela URL en la variable $path
+        if($request->file())
+        {
+            $request->validate([
+                'picture_profile'   => 'sometimes|image|mimes:jpeg,jpg,png|max:3000'
+            ]);
+            $path_picture = Storage::disk('public')->put('picture_profile', $request->file('picture_profile'));
+        }
+        else
+        {
+            $path_picture ='';
+        }
         
         $user = User::find($id);
-            $user->dni      = $request->dni;
             $user->name     = $request->name;
             $user->email    = $request->email;
+
+            if(!empty($path_picture))
+            {
+               $user->picture_profile = $path_picture; 
+            }
+
             $user->password = bcrypt($request->password);
         $user->save();
 

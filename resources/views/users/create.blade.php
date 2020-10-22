@@ -12,7 +12,7 @@
                 @include('alerts.errors')
                 @include('alerts.info')
                 <div class="card-body">                    
-                    {{ Form::open(['route' => 'users.store']) }}
+                    {{ Form::open(['route' => 'users.store', 'files'=>'true']) }}
 
                         @include('users.partials.form')
                         

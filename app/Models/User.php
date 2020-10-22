@@ -23,6 +23,7 @@ class User extends Authenticatable
         'dni',
         'name',
         'email',
+        'picture_profile',
         'password',
     ];
 

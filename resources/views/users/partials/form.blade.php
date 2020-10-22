@@ -1,10 +1,16 @@
+@if(empty($user->id))
 <div class="form-group">
 	<div class="row">
-		<div class="col-6">
+		<div class="col-12">
 			{{ Form::label('dni', 'DNI')}}
 			{{ Form::text('dni', null, ['class' => 'form-control', 'id' => 'dni']) }}
 		</div>
-		<div class="col-6">
+	</div>
+</div>
+@endif
+<div class="form-group">
+	<div class="row">
+		<div class="col-12">
 			{{ Form::label('name', 'Nombre')}}
 			{{ Form::text('name', null, ['class' => 'form-control', 'id' => 'name']) }}
 		</div>
@@ -18,6 +24,16 @@
 		</div>
 	</div>
 </div>
+ <div class="form-group">
+    <div class="row">
+        <div class="col-md-12">
+            {{ Form::label('picture_profile', 'Foto de perfil')}}
+            <div class="">
+            {{ Form::file('picture_profile',['class' => '', 'id' => 'picture_profile', 'accept'=> 'image/png, image/jpeg, image/jpg']) }}
+            </div>
+        </div>
+    </div>
+</div>
 <div class="form-group">
 	<div class="row">
 		<div class="col-6">
@@ -30,7 +46,6 @@
 		</div>
 	</div>
 </div>
-
 <div class="form-group">
 	<div class="row">
 		<div class="col-md-6">
