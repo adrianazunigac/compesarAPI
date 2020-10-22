@@ -37,4 +37,12 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    /*
+    * AUTENTIFICACION POR DNI
+    */
+    public function username()
+    {
+        return 'dni';
+    }
 }
