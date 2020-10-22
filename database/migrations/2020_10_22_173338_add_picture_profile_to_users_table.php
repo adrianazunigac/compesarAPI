@@ -14,7 +14,7 @@ class AddPictureProfileToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('picture_profile')->after('email');
+            $table->string('picture_profile')->after('email')->default('');
         });
     }
 
