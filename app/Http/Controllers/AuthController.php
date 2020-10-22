@@ -31,8 +31,9 @@ class AuthController extends Controller
         ]);
 
         return response()->json([
-            'message' => 'Usuario creado correctamente!'
-        ], 201);
+            'message' => 'Usuario creado correctamente!',
+            'status' => 'ok'
+        ]);
     }
 
     /**
@@ -50,7 +51,8 @@ class AuthController extends Controller
 
         if (!Auth::attempt($credentials))
             return response()->json([
-                'message' => 'No autorizado'
+                'message' => 'No autorizado',
+                'status' => 'error'
             ], 401);
 
         $user = $request->user();
@@ -64,7 +66,8 @@ class AuthController extends Controller
         return response()->json([
             'access_token' => $tokenResult->accessToken,
             'token_type' => 'Bearer',
-            'expires_at' => Carbon::parse($token->expires_at)->toDateTimeString()
+            'expires_at' => Carbon::parse($token->expires_at)->toDateTimeString(),
+            'status' => 'ok'
         ]);
     }
 
@@ -76,7 +79,8 @@ class AuthController extends Controller
         $request->user()->token()->revoke();
 
         return response()->json([
-            'message' => 'Successfully logged out'
+            'message' => 'Successfully logged out',
+            'status' => 'ok'
         ]);
     }
 
