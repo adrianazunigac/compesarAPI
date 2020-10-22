@@ -58,7 +58,7 @@ class FormController extends Controller
      */
     public function show($id)
     {
-        $Form = Form::find($id);
+        $Form = Form::with('questions.QuestionOptions')->find($id);
 
         return response()->json([
                 'status' => 'ok',

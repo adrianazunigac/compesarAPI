@@ -25,4 +25,12 @@ class Question extends Model
         'description',
         'question_type_id'
     ];
+
+    /**
+     * Obtener las opciones de pregunta de las tipo 5
+     */
+    public function QuestionOptions()
+    {
+        return $this->hasMany('App\Models\QuestionOption');
+    }
 }

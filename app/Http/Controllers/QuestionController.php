@@ -80,7 +80,6 @@ class QuestionController extends Controller
                 for ($i=0; $i < count($request->question_option_description); $i++)
                 {
                     $QuestionOption = QuestionOption::find($request->question_option_id[$i]);
-                        $QuestionOption->question_id = $Question->id;
                         $QuestionOption->description = $request->question_option_description[$i];
                         
                     if(!$QuestionOption->save())

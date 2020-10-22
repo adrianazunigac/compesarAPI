@@ -24,4 +24,13 @@ class Form extends Model
     protected $fillable = [
         'name'
     ];
+
+
+    /**
+    * Obtener las questiones relacionadas al formulario.
+    */
+    public function questions()
+    {
+        return $this->hasMany('App\Models\Question');
+    }
 }

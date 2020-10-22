@@ -16,7 +16,10 @@ Route::group(['prefix' => 'auth' ], function () {
     });
 });
 
-//Recuperacion de contraseña
+
+/**
+* RECUPERAR CONTRASEÑA
+*/
 Route::post('/password/email', 'App\Http\Controllers\Auth\ForgotPasswordController@sendResetLinkEmail');
 
 
@@ -50,7 +53,6 @@ Route::group(['prefix' => 'forms' ], function () {
 Route::group(['prefix' => 'questions' ], function () {
     Route::group(['middleware' => 'auth:api'], function() {
         Route::post('/', 'App\Http\Controllers\QuestionController@store');
-        Route::get('/{id}', 'App\Http\Controllers\QuestionController@show');
         Route::put('/{id}', 'App\Http\Controllers\QuestionController@update');
         Route::delete('/{id}', 'App\Http\Controllers\QuestionController@destroy');
     });
