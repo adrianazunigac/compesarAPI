@@ -57,3 +57,14 @@ Route::group(['prefix' => 'questions' ], function () {
         Route::delete('/{id}', 'App\Http\Controllers\QuestionController@destroy');
     });
 });
+
+
+/**
+* RUTAS DE RESPUESTAS
+*/
+Route::group(['prefix' => 'answers' ], function () {
+    Route::group(['middleware' => 'auth:api'], function() {
+        Route::post('/', 'App\Http\Controllers\AnswerController@store');
+        Route::get('/form/{id}', 'App\Http\Controllers\AnswerController@show');
+    });
+});

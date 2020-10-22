@@ -25,7 +25,6 @@ class Form extends Model
         'name'
     ];
 
-
     /**
     * Obtener las questiones relacionadas al formulario.
     */

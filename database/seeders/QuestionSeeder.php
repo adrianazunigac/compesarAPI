@@ -40,7 +40,7 @@ class QuestionSeeder extends Seeder
         //Verdadero/falso
         Question::create([
 			'form_id' => 1,
-			'description' => 'Pregunta tipo 4 (Verdadero/falso)',
+			'description' => 'Pregunta tipo 4 (Numerico)',
 			'question_type_id' => '4'
 		]);
 

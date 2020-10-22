@@ -19,7 +19,7 @@ class QuestionTypesSeeder extends Seeder
         QuestionTypes::create(['description' => 'Si/No']);
         QuestionTypes::create(['description' => 'Texto']);
         QuestionTypes::create(['description' => 'Fecha']);
-        QuestionTypes::create(['description' => 'Verdadero/falso']);
+        QuestionTypes::create(['description' => 'Numerico']);
         QuestionTypes::create(['description' => 'Mutiple respuesta Opcion unica']);
     }
 }
