@@ -16,7 +16,7 @@
                           <img src="{{ asset( $user->picture_profile ) }}" class="rounded-circle" width="250px" height="250px" />
                         </div>
                         @else
-                        <p><i>Sin foto de perfil :(</i></p>
+                        <p><i>Sin foto de perfil</i></p>
                     @endif
                 	<p><strong>{{ __('Id') }}:</strong>   {{ $user->id }}</p>
                     <p><strong>{{ __('DNI') }}:</strong>   {{ $user->dni }}</p>

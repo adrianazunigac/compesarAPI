@@ -49,7 +49,6 @@ class UserController extends Controller
             'email'             => 'required|unique:users|email|max:255',
             'password'          => 'required|string|min:8|confirmed'
         ]);
-
          
         //Guardo la Hoja de vida y ela URL en la variable $path
         if($request->file())
@@ -114,7 +113,6 @@ class UserController extends Controller
             'email'             => 'required|email|max:255',
             'password'          => 'required|string|min:8|confirmed'
         ]);
-
         //Guardo la Hoja de vida y ela URL en la variable $path
         if($request->file())
         {

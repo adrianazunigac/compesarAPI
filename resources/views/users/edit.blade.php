@@ -12,7 +12,7 @@
                 @include('alerts.errors')
                 @include('alerts.info')
                 <div class="card-body">                    
-                    {!! Form::model($user, ['route' => ['users.update', $user->id], 'method' => 'PUT']) !!}
+                    {!! Form::model($user, ['route' => ['users.update', $user->id], 'method' => 'PUT', 'files'=>'true']) !!}
 
                         @include('users.partials.form')
                         
