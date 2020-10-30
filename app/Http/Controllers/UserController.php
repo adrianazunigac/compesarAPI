@@ -44,9 +44,12 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        $date18 = date('Y-m-d', strtotime('-18 year'));
         $request->validate([
             'dni'               => 'required|unique:users|string|max:100',
             'email'             => 'required|unique:users|email|max:255',
+            'talla'             => 'required|numeric|min:150',
+            'fecha_nacimiento'  => 'required|date|before_or_equal:'.$date18,
             'password'          => 'required|string|min:8|confirmed'
         ]);
          
@@ -66,11 +69,11 @@ class UserController extends Controller
             'dni' => $request->dni,
             'name' => $request->name,
             'email' => $request->email,
+            'talla' => $request->talla,
+            'fecha_nacimiento' => $request->fecha_nacimiento,
             'picture_profile' => $path_picture,
             'password' => Hash::make($request->password),
-        ]);
-
-       
+        ]);       
         
         return redirect()->route('users.index', $user->id)
             ->with('info', 'Usuario registrado con éxito');
@@ -109,8 +112,11 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $date18 = date('Y-m-d', strtotime('-18 year'));
         $request->validate([
             'email'             => 'required|email|max:255',
+            'talla'             => 'required|numeric|min:150',
+            'fecha_nacimiento'  => 'required|date|before_or_equal:'.$date18,
             'password'          => 'required|string|min:8|confirmed'
         ]);
         //Guardo la Hoja de vida y ela URL en la variable $path
@@ -129,6 +135,8 @@ class UserController extends Controller
         $user = User::find($id);
             $user->name     = $request->name;
             $user->email    = $request->email;
+            $user->talla    = $request->talla;
+            $user->fecha_nacimiento    = $request->fecha_nacimiento;
 
             if(!empty($path_picture))
             {

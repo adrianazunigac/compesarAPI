@@ -3,7 +3,7 @@
 	<div class="row">
 		<div class="col-12">
 			{{ Form::label('dni', 'DNI')}}
-			{{ Form::text('dni', null, ['class' => 'form-control', 'id' => 'dni']) }}
+			{{ Form::text('dni', null, ['class' => 'form-control', 'id' => 'dni', 'required' => 'required']) }}
 		</div>
 	</div>
 </div>
@@ -12,7 +12,7 @@
 	<div class="row">
 		<div class="col-12">
 			{{ Form::label('name', 'Nombre')}}
-			{{ Form::text('name', null, ['class' => 'form-control', 'id' => 'name']) }}
+			{{ Form::text('name', null, ['class' => 'form-control', 'id' => 'name', 'required' => 'required']) }}
 		</div>
 	</div>
 </div>
@@ -20,10 +20,30 @@
 	<div class="row">
 		<div class="col-12">
 			{{ Form::label('email', 'Correo Electronico')}}
-			{{ Form::email('email', null, ['class' => 'form-control', 'id' => 'email']) }}
+			{{ Form::email('email', null, ['class' => 'form-control', 'id' => 'email', 'required' => 'required']) }}
 		</div>
 	</div>
 </div>
+
+<div class="form-group">
+	<div class="row">
+		<div class="col-12">
+			{{ Form::label('talla', 'Talla')}}
+			{{ Form::number('talla', null, ['class' => 'form-control', 'id' => 'talla', 'maxlength'=>'5', 'step' => "any", 'max' => "999", 'required' => 'required']) }}
+		</div>
+	</div>
+</div>
+
+
+<div class="form-group">
+	<div class="row">
+		<div class="col-12">
+			{{ Form::label('fecha_nacimiento', 'Fecha de nacimiento')}}
+			{{ Form::date('fecha_nacimiento', null, ['class' => 'form-control', 'id' => 'fecha_nacimiento', 'required' => 'required']) }}
+		</div>
+	</div>
+</div>
+
  <div class="form-group">
     <div class="row">
         <div class="col-md-12">

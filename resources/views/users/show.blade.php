@@ -22,6 +22,8 @@
                     <p><strong>{{ __('DNI') }}:</strong>   {{ $user->dni }}</p>
                     <p><strong>{{ __('Name') }}:</strong>   {{ $user->name }}</p>
                     <p><strong>{{ __('E-Mail Address') }}:</strong>   {{ $user->email }}</p>
+                    <p><strong>{{ __('Talla') }}:</strong>   {{ $user->talla }}</p>
+                    <p><strong>{{ __('Fecha_Nacimiento') }}:</strong>   {{ $user->fecha_nacimiento }}</p>
                 </div>
             </div>
         </div>

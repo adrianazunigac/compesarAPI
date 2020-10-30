@@ -16,12 +16,14 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        User::create([
+        /*User::create([
             'dni' => '123456',
             'name' => 'administrador',
             'email' => 'amendozaaguiar@outlook.com',
+            //'talla' => '175',
+            //'fecha_nacimiento' => '1995-04-16',
             'picture_profile' => 'picture_profile/xSqNHiVHTVJjta75GK3cfYKrtlLAWCZbgVJGMqKW.png',
             'password' => bcrypt('123456')
-        ]);
+        ]);*/
     }
 }
